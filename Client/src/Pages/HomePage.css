@@ -59,4 +59,14 @@
   .home-page > *:not(.header) {
     margin-top: 60px; 
   }
-  
+  @media (max-width: 600px) {
+    .home-page {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+      }
+      .side-bar {
+       width: 90%;
+      }
+  }

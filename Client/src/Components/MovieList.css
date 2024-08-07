@@ -1,0 +1,15 @@
+/* MovieList.css */
+.movie-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    padding: 16px;
+  }
+  
+  /* Mobile view */
+  @media (max-width: 600px) {
+    .movie-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  

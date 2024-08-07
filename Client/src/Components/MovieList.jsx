@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { fetchMovies, setFilter, setSort } from '../Redux/MovieReducer/action';
 import MovieCard from './MovieCard';
+import './MovieList.css'; // Import the CSS file
 
 const MovieList = () => {
   const dispatch = useDispatch();
@@ -26,12 +27,10 @@ const MovieList = () => {
     dispatch(fetchMovies());
   }, [dispatch, location.search]);
 
-  // Apply filter
   const filteredMovies = filter
     ? movies.filter((movie) => movie.rating === parseInt(filter))
     : movies;
 
-  // Apply sort
   const sortedMovies = sort
     ? filteredMovies.slice().sort((a, b) => {
         if (sort === 'asc') {
@@ -48,15 +47,8 @@ const MovieList = () => {
     navigate(`/movie/${id}`);
   };
 
-  const gridStyle = {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(4, 1fr)', 
-    gap: '16px',
-    padding: '16px',
-  };
-
   return (
-    <div data-testid="movie-list" style={gridStyle}>
+    <div data-testid="movie-list" className="movie-grid">
       {sortedMovies.map((movie) => (
         <MovieCard
           key={movie.id}

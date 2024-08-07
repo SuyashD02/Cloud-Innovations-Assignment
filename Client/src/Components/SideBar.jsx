@@ -47,7 +47,7 @@ const SideBar = () => {
   return (
     <div className="sidebar">
       <div className="filter-section">
-        <p>Filter by Rating</p>
+        <p style={{fontWeight:"bold"}}>Filter by Rating</p>
         {[1, 2, 3, 4, 5].map((rating) => (
           <label key={rating} className="rating-label">
             <input
@@ -63,12 +63,29 @@ const SideBar = () => {
         ))}
       </div>
       <div className="sort-section">
-        <p>Sort by Year</p>
-        <select value={sort || ''} onChange={handleSortChange} data-testid="sort">
-          <option value="">Select Order</option>
-          <option value="asc">Ascending</option>
-          <option value="desc">Descending</option>
-        </select>
+        <p style={{fontWeight:"bold"}}>Sort by Year</p>
+        <label className="sort-label">
+          <input
+            type="radio"
+            name="sort"
+            value="asc"
+            checked={sort === 'asc'}
+            onChange={handleSortChange}
+            className="sort-input"
+          />
+          Ascending
+        </label>
+        <label className="sort-label">
+          <input
+            type="radio"
+            name="sort"
+            value="desc"
+            checked={sort === 'desc'}
+            onChange={handleSortChange}
+            className="sort-input"
+          />
+          Descending
+        </label>
       </div>
     </div>
   );

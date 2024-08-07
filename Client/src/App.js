@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import store from './Redux/store';
 import HomePage from './Pages/HomePage';
 import MovieDetailsPage from './Pages/MovieDetailsPage';
-import Login from './Components/Login';
+import Login from './Pages/Login';
 import PrivateRoute from './Components/PrivateRoute';
 import './App.css';
 function App() {
